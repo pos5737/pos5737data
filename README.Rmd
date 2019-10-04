@@ -1,0 +1,83 @@
+---
+title: "Datasets for POS 5737"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This package contains only datasets--the tidy datasets for POS 5737 found on the [data page](https://pos5737.github.io/data.html) of the course website.
+
+## Motivation
+
+In the usual workflow, one might download the data file `parties.rds` into the `data/` directory. They might load the data with
+
+```
+parties_df <- readr::read_rds("data/parties.rds)
+```
+
+This package allows you to skip the download step.
+
+## Usage
+
+### Installing the Package
+
+To install the package, run 
+
+```
+devtools::install_github("pos5737/pos5737data")
+```
+
+You only need to run this once.
+
+### Loading the Data
+
+Once you have the package installed on your computer, you can load the datasets with
+
+```{r}
+# load data
+data(parties_df, package = "pos5737data")
+```
+
+Alternatively, you can use
+
+```{r}
+# load packages
+library(pos5737data)
+
+# load data
+data("parties_df")
+```
+
+To see the available datasets, use
+
+```
+help(package = "pos5737data")
+```
+
+## Example
+
+```{r}
+# load packages
+library(tidyverse)
+library(broom)
+
+# load data
+data(parties_df)
+
+# quick look
+glimpse(parties_df)
+# note that `data(parties_df) %>% glimpse()` doesn't work
+
+# regression model and summary
+fit_df <- lm(enep ~ eneg*average_magnitude, data = parties_df) %>%
+  tidy() %>%
+  glimpse()
+```
+
+
+
+
+
+
