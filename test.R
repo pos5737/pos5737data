@@ -5,6 +5,7 @@ devtools::install_github("pos5737/pos5737data", force = TRUE)
 # load packages
 library(tidyverse)
 library(broom)
+# package arm used as well with ::
 
 # load data
 data(parties_df, package = "pos5737data")
@@ -17,6 +18,6 @@ glimpse(parties_df)
 #     glimpse()
 
 # regression model and summary
-fit_df <- lm(enep ~ eneg*average_magnitude, data = parties_df) %>%
-  tidy() %>%
-  glimpse()
+fit <- lm(enep ~ eneg*average_magnitude, data = parties_df)
+arm::display(fit)
+
