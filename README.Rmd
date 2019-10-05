@@ -64,7 +64,7 @@ library(tidyverse)
 library(broom)
 
 # load data
-data(parties_df)
+data(parties_df, package = "pos5737data")
 
 # quick look
 glimpse(parties_df)
