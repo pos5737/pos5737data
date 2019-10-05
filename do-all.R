@@ -18,6 +18,8 @@ md("data/")
 md("raw-data/")
 md("formatted-data/")
 if (file.exists("formatted-data.zip")) file.remove("formatted-data.zip")
+if (file.exists("README.md")) file.remove("README.md")
+
 
 # create datasets
 
@@ -34,6 +36,9 @@ files %>%
 # export to formats
 source("make-data/format-data.R")
 
-# create README
-
-knitr::knit("README.Rmd")
+# build the package
+devtools::document()
+devtools::check()
+devtools::build()
+devtools::install()
+devtools::build_readme()

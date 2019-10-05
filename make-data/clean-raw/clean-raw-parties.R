@@ -53,7 +53,7 @@ parties_df_raw0 <- parties_df_raw %>%
   glimpse()
 
 # tidy the data ----
-parties_df <- parties_df_raw0 %>%
+parties <- parties_df_raw0 %>%
   # keep only variables of interest
   select(country, year, average_magnitude = avemag, eneg, enep = enep1,
          upper_tier = uppertier, en_pres = enpres, proximity = proximity1) %>%
@@ -68,5 +68,5 @@ parties_df <- parties_df_raw0 %>%
                                              "Large-Magnitude PR"))))
 
 # save to file
-save(parties_df, file = "data/parties_df.rda")
+save(parties, file = "data/parties.rda")
 

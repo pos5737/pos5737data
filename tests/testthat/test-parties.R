@@ -1,8 +1,8 @@
 test_that("parties dataset replicates Clark and Golder's (2006) results", {
   # load data
-  data(parties_df)
+  data(parties)
   # regression model from their table 2, pooled analysis, whole sample
-  fit <- lm(enep ~ log(average_magnitude)*eneg + upper_tier*eneg + en_pres*proximity, data = parties_df)
+  fit <- lm(enep ~ log(average_magnitude)*eneg + upper_tier*eneg + en_pres*proximity, data = parties)
   # check the intercept
   expect_equivalent(round(coef(fit)["(Intercept)"], 2), 2.81)
   # check the number of observations

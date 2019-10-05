@@ -31,11 +31,11 @@
 #'   of Electoral Laws." \emph{Comparative Political Studies} 39(6): 679-708. [\href{http://mattgolder.com/files/research/cps2.pdf}{paper}]
 #' @examples
 #'   # load data
-#'   data(parties_df)
+#'   data(parties)
 #'
 #'   # regression model from their table 2, pooled analysis, whole sample
-#'   fit <- lm(enep ~ log(average_magnitude)*eneg + upper_tier*eneg + en_pres*proximity, data = parties_df)
+#'   fit <- lm(enep ~ log(average_magnitude)*eneg + upper_tier*eneg + en_pres*proximity, data = parties)
 #'   summary(fit)
-"parties_df"
+"parties"
 
 

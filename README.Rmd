@@ -19,7 +19,7 @@ devtools::install_github("pos5737/pos5737data")
 help(package = "pos5737data")
 
 # load data
-data(parties_df, package = "pos5737data")
+data(parties, package = "pos5737data")
 ```
 
 ## Motivation
@@ -27,7 +27,7 @@ data(parties_df, package = "pos5737data")
 In the usual workflow, one might download the data file `parties.rds` into the `data/` directory. They might load the data with
 
 ```
-parties_df <- readr::read_rds("data/parties.rds)
+parties <- readr::read_rds("data/parties.rds)
 ```
 
 This package allows you to skip the download step.
@@ -50,7 +50,7 @@ Once you have the package installed on your computer, you can load the datasets 
 
 ```{r}
 # load data
-data(parties_df, package = "pos5737data")
+data(parties, package = "pos5737data")
 ```
 
 Alternatively, you can use
@@ -60,7 +60,7 @@ Alternatively, you can use
 library(pos5737data)
 
 # load data
-data("parties_df")
+data("parties")
 ```
 
 To see the available datasets, use
@@ -71,7 +71,7 @@ help(package = "pos5737data")
 
 ## Example
 
-### parties: Clark and Golder (2006)
+### `parties`: Clark and Golder (2006)
 
 ```{r message=FALSE, warning=FALSE}
 # load packages
@@ -79,12 +79,12 @@ library(tidyverse)
 library(broom)
 
 # load data
-data(parties_df, package = "pos5737data")
+data(parties, package = "pos5737data")
 
 # regression model from their table 2, pooled analysis, whole sample
 fit <- lm(enep ~ log(average_magnitude)*eneg + upper_tier*eneg + 
             en_pres*proximity, 
-          data = parties_df)
+          data = parties)
 
 # create table
 texreg::screenreg(fit)
