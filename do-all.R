@@ -41,4 +41,6 @@ devtools::document()
 devtools::check()
 devtools::build()
 devtools::install()
-devtools::build_readme()
+
+# knit the readme
+knitr::knit("README.Rmd")
