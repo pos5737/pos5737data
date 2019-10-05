@@ -53,55 +53,46 @@ To see the available datasets, use
 ``` r
 # load packages
 library(tidyverse)
-```
-
-    ## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
-
-    ## ✔ ggplot2 3.2.1     ✔ purrr   0.3.2
-    ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-    ## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-    ## ✔ readr   1.3.1     ✔ forcats 0.4.0
-
-    ## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-    ## ✖ dplyr::filter() masks stats::filter()
-    ## ✖ dplyr::lag()    masks stats::lag()
-
-``` r
 library(broom)
 
 # load data
-data(parties_df)
+data(parties_df, package = "pos5737data")
 
-# quick look
-glimpse(parties_df)
+# regression model from their table 2, pooled analysis, whole sample
+fit <- lm(enep ~ log(average_magnitude)*eneg + upper_tier*eneg + 
+            en_pres*proximity, 
+          data = parties_df)
+
+# create table
+texreg::screenreg(fit)
 ```
 
-    ## Observations: 555
-    ## Variables: 10
-    ## $ country              <chr> "Albania", "Albania", "Albania", "Argentina…
-    ## $ year                 <dbl> 1992, 1996, 1997, 1946, 1951, 1954, 1958, 1…
-    ## $ average_magnitude    <dbl> 1.00, 1.00, 1.00, 10.53, 10.53, 4.56, 8.13,…
-    ## $ eneg                 <dbl> 1.106929, 1.106929, 1.106929, 1.342102, 1.3…
-    ## $ enep                 <dbl> 2.190, 2.785, 2.870, 5.750, 1.970, 1.930, 2…
-    ## $ upper_tier           <dbl> 28.57, 17.86, 25.80, 0.00, 0.00, 0.00, 0.00…
-    ## $ en_pres              <dbl> 0.00, 0.00, 0.00, 2.09, 1.96, 1.96, 2.65, 2…
-    ## $ proximity            <dbl> 0.00, 0.00, 0.00, 1.00, 1.00, 0.20, 1.00, 0…
-    ## $ social_heterogeneity <fct> Bottom 3rd of ENEG, Bottom 3rd of ENEG, Bot…
-    ## $ electoral_system     <fct> Single-Member District, Single-Member Distr…
-
-``` r
-# note that `data(parties_df) %>% glimpse()` doesn't work
-
-# regression model and summary
-fit_df <- lm(enep ~ eneg*average_magnitude, data = parties_df) %>%
-  tidy() %>%
-  glimpse()
-```
-
-    ## Observations: 4
-    ## Variables: 5
-    ## $ term      <chr> "(Intercept)", "eneg", "average_magnitude", "eneg:aver…
-    ## $ estimate  <dbl> 3.740473138, 0.082985217, 0.013948307, -0.002241715
-    ## $ std.error <dbl> 0.164996630, 0.079625206, 0.006610639, 0.003862348
-    ## $ statistic <dbl> 22.6699972, 1.0421978, 2.1099787, -0.5804021
-    ## $ p.value   <dbl> 7.062995e-81, 2.977770e-01, 3.531041e-02, 5.618808e-01
+    ## 
+    ## =======================================
+    ##                              Model 1   
+    ## ---------------------------------------
+    ## (Intercept)                    2.81 ***
+    ##                               (0.20)   
+    ## log(average_magnitude)         0.33 ** 
+    ##                               (0.11)   
+    ## eneg                           0.19 *  
+    ##                               (0.08)   
+    ## upper_tier                     0.05 ***
+    ##                               (0.01)   
+    ## en_pres                        0.35 ***
+    ##                               (0.07)   
+    ## proximity                     -3.42 ***
+    ##                               (0.38)   
+    ## log(average_magnitude):eneg    0.08    
+    ##                               (0.06)   
+    ## eneg:upper_tier               -0.02 ***
+    ##                               (0.00)   
+    ## en_pres:proximity              0.80 ***
+    ##                               (0.15)   
+    ## ---------------------------------------
+    ## R^2                            0.30    
+    ## Adj. R^2                       0.29    
+    ## Num. obs.                    555       
+    ## RMSE                           1.59    
+    ## =======================================
+    ## *** p < 0.001, ** p < 0.01, * p < 0.05
