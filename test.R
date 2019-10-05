@@ -4,7 +4,6 @@ devtools::install_github("pos5737/pos5737data", force = TRUE)
 
 # load packages
 library(tidyverse)
-library(broom)
 # package arm used as well with ::
 
 # load data
