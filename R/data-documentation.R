@@ -2,8 +2,9 @@
 #'
 #' A tidied dataset from
 #' \href{http://mattgolder.com/files/research/cps2.pdf}{Clark and Golder
-#' (2006)}. See their paper for fuller descriptions of the variables. Their full
-#' replication data are available at
+#' (2006)}. These are the data they use in their model from Table 2, Pooled
+#' Analysis, Whole Sample. See their paper for fuller descriptions of the
+#' variables. Their full replication data are available at
 #' \href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HGXPHP}{on
 #' Dataverse}. These data largely derive from Matt Golder and Nils-Christian
 #' Bormann's \href{http://mattgolder.com/elections}{DES data} discussed in this
@@ -22,10 +23,10 @@
 #'   \item{social_heterogeneity}{qualitative version of eneg}
 #'   \item{electoral_system}{qualitative version of average_magnitude; small-magnitude PR systems have an average magnitude between 1 and 7}
 #' }
-#' @source Replication data from \href{http://mattgolder.com/files/research/cps2.pdf}{Clark and Golder
+#' @source Data from \href{http://mattgolder.com/files/research/cps2.pdf}{Clark and Golder
 #' (2006)} available
 #' \href{https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HGXPHP}{on
-#' Dataverse}
+#' Dataverse}.
 #' @references Clark, William Roberts, and Matt Golder. 2006. "Rehabilitating
 #'   Duverger's Theory: Testing the Mechanical and Strategic Modifying Effects
 #'   of Electoral Laws." \emph{Comparative Political Studies} 39(6): 679-708. [\href{http://mattgolder.com/files/research/cps2.pdf}{paper}]
