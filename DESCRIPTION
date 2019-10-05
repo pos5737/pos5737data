@@ -4,7 +4,7 @@ Title: Data for POS 5737
 Version: 0.1.0
 Author: Carlisle Rainey
 Maintainer: Carlisle Rainey <crainey@fsu.edu>
-Description: For easy access, the package contains several examples for POS 5737 at FSU. For more formats and information, see the \href{https://pos5737.github.io/data.html}{data page}.
+Description: For easy access, the package contains several tidy data sets from political science for POS 5737 at FSU. These are post-wrangling data sets, which means that the variable names are clear and consistent, factor levels are clear and under control, and dates are under control.For more formats and information, see the \href{https://pos5737.github.io/data.html}{data page}.
 License: MIT
 Encoding: UTF-8
 LazyData: true
