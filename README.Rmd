@@ -9,6 +9,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This package contains only datasets--the tidy datasets for POS 5737 found on the [data page](https://pos5737.github.io/data.html) of the course website.
 
+## Quick 
+
 ## Motivation
 
 In the usual workflow, one might download the data file `parties.rds` into the `data/` directory. They might load the data with

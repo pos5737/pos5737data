@@ -1,4 +1,6 @@
 
+# clean datasets ----
+
 # a function to create new, clean directories
 # https://stackoverflow.com/questions/38375305/how-to-overwrite-a-folder-on-the-computer-using-functions-in-r
 md <- function(fp) {
@@ -17,6 +19,7 @@ md("raw-data/")
 md("formatted-data/")
 if (file.exists("formatted-data.zip")) file.remove("formatted-data.zip")
 
+# create datasets
 
 # get all raw data
 files <- list.files("make-data/get-raw/", full.names = TRUE)
@@ -30,3 +33,7 @@ files %>%
 
 # export to formats
 source("make-data/format-data.R")
+
+# create README
+
+knitr::knit("README.Rmd")
