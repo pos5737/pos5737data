@@ -38,12 +38,12 @@ Bormann's \href{http://mattgolder.com/elections}{DES data} discussed in this
 paper \href{http://mattgolder.com/files/research/es3.pdf}{this paper}.
 }
 \examples{
-  # load data
-  data(parties)
+# load data
+data(parties)
 
-  # regression model from their table 2, pooled analysis, whole sample
-  fit <- lm(enep ~ log(average_magnitude)*eneg + upper_tier*eneg + en_pres*proximity, data = parties)
-  summary(fit)
+# regression model from their table 2, pooled analysis, whole sample
+fit <- lm(enep ~ log(average_magnitude)*eneg + upper_tier*eneg + en_pres*proximity, data = parties)
+summary(fit)
 }
 \references{
 Clark, William Roberts, and Matt Golder. 2006. "Rehabilitating
