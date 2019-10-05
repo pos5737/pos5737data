@@ -12,10 +12,6 @@ data(parties_df, package = "pos5737data")
 
 # quick look
 glimpse(parties_df)
-# note that below doesn't workout because data() doesn't
-# output a data frame.
-#   data(parties_df, package = "pos5737data")) %>%
-#     glimpse()
 
 # regression model and summary
 fit <- lm(enep ~ eneg*average_magnitude, data = parties_df)
