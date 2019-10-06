@@ -1,7 +1,7 @@
 Datasets for POS 5737
 ================
 
-This package contains only datasets–the tidy datasets for POS 5737 found
+This package contains only datasets—the tidy datasets for POS 5737 found
 on the [data page](https://pos5737.github.io/data.html) of the course
 website.
 
