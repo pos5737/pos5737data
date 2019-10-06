@@ -43,4 +43,5 @@ devtools::build()
 devtools::install()
 
 # knit the readme
-knitr::knit("README.Rmd")
+rmarkdown::render("README.Rmd", output_format = rmarkdown::github_document())
+file.remove("README.html")  # bc I can't figure out how to prevent the line above from creating it
