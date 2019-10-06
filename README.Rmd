@@ -22,6 +22,16 @@ help(package = "pos5737data")
 data(parties, package = "pos5737data")
 ```
 
+## Contributing
+
+New datasets require the following:
+
+- Create the R script `make-data/get-raw/get-raw-*.R` that obtains the raw data (ideally from Dataverse and hopefully versioned) and saves the original format and filename to `raw-data/`.
+- Create the R script `make-data/clean-raw/clean-raw-*.R` that tidies the raw data into a easy-to-use data frame and saves it to `data/*.rda`. Variable names and factor levels should be interpretable. Factor levels should be in a reasonable order. Dates should be store appropriate as date or date-time objects. 
+- Create a Roxygen2 file `R/*-documentation.R` that documents the data set. Include brief description of the data set, the dimmensions and descriptions of each variable (it's okay to point users to the source paper for the details), a link to the raw data files, a link to the published paper(s) using the data, and an example only uses base R functions (and ideally replicates a key result from the original paper).
+- Create a test in `tests/testthat/test-*.R` (`usethis::use_test()` initiates the file) to test that the data works as expected. Ideally, the test that key results from the paper reproduces.
+- Add an example to `README.Rmd`.
+
 ## Motivation
 
 In the usual workflow, one might download the data file `parties.rds` into the `data/` directory. They might load the data with
