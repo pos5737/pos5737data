@@ -22,7 +22,8 @@ New datasets require the following:
 
   - Create the R script `make-data/get-raw/get-raw-*.R` that obtains the
     raw data (ideally from Dataverse and hopefully versioned) and saves
-    the original format and filename to `raw-data/`.
+    the original format and filename to `raw-data/`. If raw data are not
+    automatically gettable, then save in `raw-data-loc/`.
   - Create the R script `make-data/clean-raw/clean-raw-*.R` that tidies
     the raw data into a easy-to-use data frame and saves it to
     `data/*.rda`. Variable names and factor levels should be
@@ -133,3 +134,17 @@ texreg::screenreg(fit)
     ## RMSE                           1.59    
     ## =======================================
     ## *** p < 0.001, ** p < 0.01, * p < 0.05
+
+### `therms`: ANES Feeling Thermometers
+
+``` r
+# load data
+data(therms)
+
+ggplot(therms, aes(x = ft_democratic_party, y = ft_republican_party)) +
+  geom_point()
+```
+
+    ## Warning: Removed 3059 rows containing missing values (geom_point).
+
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
