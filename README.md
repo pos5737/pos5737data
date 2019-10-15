@@ -147,4 +147,16 @@ ggplot(therms, aes(x = ft_democratic_party, y = ft_republican_party)) +
 
     ## Warning: Removed 3059 rows containing missing values (geom_point).
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+### `anscombe`
+
+``` r
+data(anscombe, package = "pos5737data")
+
+ggplot(anscombe, aes(x = x, y = y)) + 
+  geom_point() + 
+  facet_wrap(vars(dataset))
+```
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->

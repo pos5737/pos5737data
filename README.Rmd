@@ -110,5 +110,13 @@ ggplot(therms, aes(x = ft_democratic_party, y = ft_republican_party)) +
   geom_point()
 ```
 
+### `anscombe`
 
+```{r}
+data(anscombe, package = "pos5737data")
+
+ggplot(anscombe, aes(x = x, y = y)) + 
+  geom_point() + 
+  facet_wrap(vars(dataset))
+```
 
